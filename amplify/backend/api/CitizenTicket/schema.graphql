@@ -1,0 +1,6 @@
+type Categories @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  name: String
+  icon: String
+  colour: String
+} 
