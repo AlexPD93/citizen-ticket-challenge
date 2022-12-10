@@ -1,9 +1,3 @@
-import List from "../components/List";
-
 export default function CategoryPage() {
-  return (
-    <div className="CategoryPage">
-      <List />
-    </div>
-  );
+  return <div className="CategoryPage"></div>;
 }

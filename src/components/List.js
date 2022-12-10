@@ -8,16 +8,29 @@ export default function List() {
   useEffect(() => {
     async function retrieveCategories() {
       setCategories(await DataStore.query(Categories));
-      return;
     }
     retrieveCategories();
   });
+
+  async function deleteCategory(e) {
+    const listItem = e.target.id;
+
+    const modelToDelete = await DataStore.query(Categories, listItem);
+    DataStore.delete(modelToDelete);
+  }
 
   return (
     <div className="List">
       <ul>
         {categories.map((category, index) => {
-          return <li key={index}>{category.name}</li>;
+          return (
+            <div key={index}>
+              <li>{category.name}</li>
+              <button id={category.id} onClick={deleteCategory}>
+                X
+              </button>
+            </div>
+          );
         })}
       </ul>
     </div>
