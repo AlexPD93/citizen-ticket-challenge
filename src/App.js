@@ -1,12 +1,6 @@
 import "./App.css";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
-// Icons
-import LightBulb from "./Icons/lightbulb.png";
-import Entertainment from "./Icons/entertainment.png";
-import Home from "./Icons/home.png";
-import Money from "./Icons/money.png";
-
 //Pages
 import HomePage from "./Pages/Homepage";
 import CategoryPage from "./Pages/CategoryPage";
