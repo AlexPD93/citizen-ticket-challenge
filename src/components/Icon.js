@@ -59,9 +59,9 @@ export default function Icon({ setChosenIcon }) {
   return (
     <div className="Icon">
       {icons.map((icon, i) => {
-        console.log(icon);
         return (
           <img
+            key={i}
             id={icon.src}
             src={icon.src}
             alt={icon.alt}

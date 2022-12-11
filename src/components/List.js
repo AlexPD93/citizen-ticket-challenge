@@ -3,7 +3,7 @@ import { Categories } from "../models";
 
 import { useEffect, useState } from "react";
 
-export default function List() {
+export default function List({ onClick }) {
   const [categories, setCategories] = useState([]);
   useEffect(() => {
     async function retrieveCategories() {
@@ -13,7 +13,7 @@ export default function List() {
   });
 
   async function deleteCategory(e) {
-    const listItem = e.target.id;
+    const listItem = e.target.parentElement.id;
 
     const modelToDelete = await DataStore.query(Categories, listItem);
     DataStore.delete(modelToDelete);
@@ -24,14 +24,12 @@ export default function List() {
       <ul>
         {categories.map((category, index) => {
           return (
-            <div key={index}>
-              <li>{category.name}</li>
-              <img src={category.icon} alt="" />
+            <li key={index} onClick={onClick} id={category.id}>
+              {category.name}
+              <img src={category.icon} alt={category.name} />
               <p>{category.colour}</p>
-              <button id={category.id} onClick={deleteCategory}>
-                X
-              </button>
-            </div>
+              <button onClick={deleteCategory}>X</button>
+            </li>
           );
         })}
       </ul>

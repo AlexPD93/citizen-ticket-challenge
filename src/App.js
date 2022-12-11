@@ -1,5 +1,5 @@
 import "./App.css";
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 //Pages
 import HomePage from "./Pages/Homepage";
@@ -11,7 +11,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<HomePage />}></Route>
-          <Route path="/category-page" element={<CategoryPage />}></Route>
+          <Route path="/category-page/:id" element={<CategoryPage />}></Route>
         </Routes>
       </BrowserRouter>
     </div>
