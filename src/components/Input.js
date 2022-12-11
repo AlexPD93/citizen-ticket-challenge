@@ -1,11 +1,7 @@
 import { DataStore } from "@aws-amplify/datastore";
 import { Categories } from "../models";
 
-import { useNavigate } from "react-router-dom";
-
 export default function Input({ category, setCategory }) {
-  const navigate = useNavigate();
-
   function getValue(e) {
     setCategory(e.target.value);
   }
