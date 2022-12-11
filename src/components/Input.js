@@ -6,24 +6,24 @@ import { useState } from "react";
 import ColourPicker from "../components/ColourPicker.js";
 import Icon from "../components/Icon.js";
 
-export default function Input({ category, setCategory, setLastCategoryId }) {
+export default function Input({ categoryValue, setCategoryValue }) {
   const [color, setColor] = useState("#aabbcc");
   const [chosenIcon, setChosenIcon] = useState();
   const [textError, setTextError] = useState(false);
   const [iconError, setIconError] = useState(false);
 
   function getValue(e) {
-    setCategory(e.target.value.trim());
+    setCategoryValue(e.target.value.trim());
   }
 
   function checkValidity() {
     //Check category input
-    category.length === 0 ? setTextError(true) : setTextError(false);
+    categoryValue.length === 0 ? setTextError(true) : setTextError(false);
 
     //Check an icon has been chosen
     chosenIcon === undefined ? setIconError(true) : setIconError(false);
 
-    if (category.length === 0 || chosenIcon === undefined) {
+    if (categoryValue.length === 0 || chosenIcon === undefined) {
       return false;
     }
     return true;
@@ -36,19 +36,19 @@ export default function Input({ category, setCategory, setLastCategoryId }) {
     if (valid) {
       await DataStore.save(
         new Categories({
-          name: category,
+          name: categoryValue,
           icon: chosenIcon,
           colour: color,
         })
       );
-      setCategory("");
+      setCategoryValue("");
     }
   }
 
   return (
     <div className="input">
       <form action="">
-        <input type="text" onChange={getValue} value={category} />
+        <input type="text" onChange={getValue} value={categoryValue} />
         {textError && <p>You need to add a category!</p>}
         <ColourPicker onChange={setColor} />
         <Icon chosenIcon={chosenIcon} setChosenIcon={setChosenIcon} />
