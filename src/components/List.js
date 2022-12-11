@@ -26,6 +26,8 @@ export default function List() {
           return (
             <div key={index}>
               <li>{category.name}</li>
+              <img src={category.icon} alt="" />
+              <p>{category.colour}</p>
               <button id={category.id} onClick={deleteCategory}>
                 X
               </button>

@@ -1,9 +1,9 @@
 import { HexColorPicker } from "react-colorful";
 
-export default function ColourPicker({ color, onChange }) {
+export default function ColourPicker({ onChange }) {
   return (
     <div className="ColourPicker">
-      <HexColorPicker color={color} onChange={onChange} />
+      <HexColorPicker onChange={onChange} />
     </div>
   );
 }

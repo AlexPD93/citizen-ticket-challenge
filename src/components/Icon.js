@@ -9,18 +9,48 @@ import Movie from "../Icons/movie.png";
 import Theatre from "../Icons/theatre.png";
 import Wine from "../Icons/wine.png";
 
-export default function Icon({ chosenIcon, setChosenIcon }) {
+export default function Icon({ setChosenIcon }) {
   const icons = [
-    Home,
-    Bank,
-    Coffee,
-    Dumbbell,
-    Eating,
-    Football,
-    Headphones,
-    Movie,
-    Theatre,
-    Wine,
+    {
+      src: Home,
+      alt: "Home",
+    },
+    {
+      src: Bank,
+      alt: "Bank",
+    },
+    {
+      src: Coffee,
+      alt: "Coffee",
+    },
+    {
+      src: Dumbbell,
+      alt: "Dumbbell",
+    },
+    {
+      src: Eating,
+      alt: "Eating",
+    },
+    {
+      src: Football,
+      alt: "Football",
+    },
+    {
+      src: Headphones,
+      alt: "Headphones",
+    },
+    {
+      src: Movie,
+      alt: "Movie",
+    },
+    {
+      src: Theatre,
+      alt: "Theatre",
+    },
+    {
+      src: Wine,
+      alt: "Wine",
+    },
   ];
 
   function handleClick(e) {
@@ -28,8 +58,16 @@ export default function Icon({ chosenIcon, setChosenIcon }) {
   }
   return (
     <div className="Icon">
-      {icons.map((icon) => {
-        return <img id={icon} src={icon} alt={icon} onClick={handleClick} />;
+      {icons.map((icon, i) => {
+        console.log(icon);
+        return (
+          <img
+            id={icon.src}
+            src={icon.src}
+            alt={icon.alt}
+            onClick={handleClick}
+          />
+        );
       })}
     </div>
   );
