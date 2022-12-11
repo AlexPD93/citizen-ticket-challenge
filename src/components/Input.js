@@ -15,8 +15,8 @@ export default function Input({ category, setCategory }) {
     await DataStore.save(
       new Categories({
         name: category,
-        icon: "hello",
-        colour: "red",
+        // icon: "hello",
+        // colour: "red",
       })
     );
   }
