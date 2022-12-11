@@ -3,14 +3,14 @@ import { Categories } from "../models";
 
 import { useEffect, useState } from "react";
 
-export default function List({ onClick }) {
+export default function List({ onClick, setLastCategoryId }) {
   const [categories, setCategories] = useState([]);
   useEffect(() => {
     async function retrieveCategories() {
       setCategories(await DataStore.query(Categories));
     }
     retrieveCategories();
-  });
+  }, [categories]);
 
   async function deleteCategory(e) {
     const listItem = e.target.parentElement.id;

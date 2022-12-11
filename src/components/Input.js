@@ -6,31 +6,53 @@ import { useState } from "react";
 import ColourPicker from "../components/ColourPicker.js";
 import Icon from "../components/Icon.js";
 
-export default function Input({ category, setCategory }) {
+export default function Input({ category, setCategory, setLastCategoryId }) {
   const [color, setColor] = useState("#aabbcc");
-  const [chosenIcon, setChosenIcon] = useState("");
+  const [chosenIcon, setChosenIcon] = useState();
+  const [textError, setTextError] = useState(false);
+  const [iconError, setIconError] = useState(false);
 
   function getValue(e) {
-    setCategory(e.target.value);
+    setCategory(e.target.value.trim());
+  }
+
+  function checkValidity() {
+    //Check category input
+    category.length === 0 ? setTextError(true) : setTextError(false);
+
+    //Check an icon has been chosen
+    chosenIcon === undefined ? setIconError(true) : setIconError(false);
+
+    if (category.length === 0 || chosenIcon === undefined) {
+      return false;
+    }
+    return true;
   }
 
   async function handleClick(e) {
     e.preventDefault();
-    await DataStore.save(
-      new Categories({
-        name: category,
-        icon: chosenIcon,
-        colour: color,
-      })
-    );
+    const valid = checkValidity();
+
+    if (valid) {
+      await DataStore.save(
+        new Categories({
+          name: category,
+          icon: chosenIcon,
+          colour: color,
+        })
+      );
+      setCategory("");
+    }
   }
 
   return (
     <div className="input">
       <form action="">
-        <input type="text" onChange={getValue} />
+        <input type="text" onChange={getValue} value={category} />
+        {textError && <p>You need to add a category!</p>}
         <ColourPicker onChange={setColor} />
-        <Icon setChosenIcon={setChosenIcon} />
+        <Icon chosenIcon={chosenIcon} setChosenIcon={setChosenIcon} />
+        {iconError && <p>You need to add an icon!</p>}
         <button type="submit" onClick={handleClick}>
           Create Category
         </button>

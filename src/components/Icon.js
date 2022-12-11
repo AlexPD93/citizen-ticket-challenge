@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 import Home from "../Icons/home.png";
 import Bank from "../Icons/bank.png";
 import Coffee from "../Icons/coffee.png";
@@ -9,7 +11,8 @@ import Movie from "../Icons/movie.png";
 import Theatre from "../Icons/theatre.png";
 import Wine from "../Icons/wine.png";
 
-export default function Icon({ setChosenIcon }) {
+export default function Icon({ chosenIcon, setChosenIcon }) {
+  const [isShown, setIsShown] = useState(false);
   const icons = [
     {
       src: Home,
@@ -56,19 +59,27 @@ export default function Icon({ setChosenIcon }) {
   function handleClick(e) {
     setChosenIcon(e.target.id);
   }
+
+  function toggleDisplay(e) {
+    e.preventDefault();
+    setIsShown((current) => !current);
+  }
   return (
     <div className="Icon">
-      {icons.map((icon, i) => {
-        return (
-          <img
-            key={i}
-            id={icon.src}
-            src={icon.src}
-            alt={icon.alt}
-            onClick={handleClick}
-          />
-        );
-      })}
+      <button onClick={toggleDisplay}>Choose an Icon +</button>
+      <img src={chosenIcon} alt="" />
+      {isShown &&
+        icons.map((icon, i) => {
+          return (
+            <img
+              key={i}
+              id={icon.src}
+              src={icon.src}
+              alt={icon.alt}
+              onClick={handleClick}
+            />
+          );
+        })}
     </div>
   );
 }

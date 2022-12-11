@@ -14,8 +14,7 @@ export default function CategoryPage() {
       setSelectedCategory(await DataStore.query(Categories, id));
     }
     fetchCategory();
-    return;
-  });
+  }, [id]);
 
   return (
     <div className="CategoryPage">
