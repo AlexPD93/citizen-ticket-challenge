@@ -41,5 +41,5 @@ export declare type CategoriesUpdateFormProps = React.PropsWithChildren<{
     onCancel?: () => void;
     onChange?: (fields: CategoriesUpdateFormInputValues) => CategoriesUpdateFormInputValues;
     onValidate?: CategoriesUpdateFormValidationValues;
-}>;
+} & React.CSSProperties>;
 export default function CategoriesUpdateForm(props: CategoriesUpdateFormProps): React.ReactElement;

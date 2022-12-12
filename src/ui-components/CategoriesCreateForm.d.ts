@@ -39,5 +39,5 @@ export declare type CategoriesCreateFormProps = React.PropsWithChildren<{
     onCancel?: () => void;
     onChange?: (fields: CategoriesCreateFormInputValues) => CategoriesCreateFormInputValues;
     onValidate?: CategoriesCreateFormValidationValues;
-}>;
+} & React.CSSProperties>;
 export default function CategoriesCreateForm(props: CategoriesCreateFormProps): React.ReactElement;

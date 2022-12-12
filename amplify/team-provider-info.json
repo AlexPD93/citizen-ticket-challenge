@@ -10,6 +10,11 @@
       "StackName": "amplify-citizenticket-staging-131737",
       "StackId": "arn:aws:cloudformation:eu-west-2:722816022443:stack/amplify-citizenticket-staging-131737/045effd0-788d-11ed-8b75-066b2552f76e",
       "AmplifyAppId": "d2186rfqd51qqd"
+    },
+    "categories": {
+      "api": {
+        "CitizenTicket": {}
+      }
     }
   }
 }
