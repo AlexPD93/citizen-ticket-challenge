@@ -6,6 +6,8 @@ import { useState } from "react";
 import ColourPicker from "../components/ColourPicker.js";
 import Icon from "../components/Icon.js";
 
+import "./Input.css";
+
 export default function Input({ categoryValue, setCategoryValue }) {
   const [color, setColor] = useState("#aabbcc");
   const [chosenIcon, setChosenIcon] = useState();
@@ -47,7 +49,7 @@ export default function Input({ categoryValue, setCategoryValue }) {
 
   return (
     <div className="input">
-      <form action="">
+      <form>
         <input type="text" onChange={getValue} value={categoryValue} />
         {textError && <p>You need to add a category!</p>}
         <ColourPicker onChange={setColor} />

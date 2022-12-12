@@ -1,7 +1,7 @@
 import { DataStore } from "@aws-amplify/datastore";
 import { Categories } from "../models";
 
-import { useEffect, useState } from "react";
+import "./List.css";
 
 export default function List({ onClick, categoriesArray }) {
   async function deleteCategory(e) {
@@ -13,14 +13,22 @@ export default function List({ onClick, categoriesArray }) {
 
   return (
     <div className="List">
-      <ul>
+      <ul className="list-container">
         {categoriesArray.map((category, index) => {
           return (
-            <li key={index} onClick={onClick} id={category.id}>
+            <li
+              key={index}
+              onClick={onClick}
+              id={category.id}
+              style={{ backgroundColor: category.colour }}
+            >
               {category.name}
-              <img src={category.icon} alt={category.name} />
-              <p>{category.colour}</p>
-              <button onClick={deleteCategory}>X</button>
+              <button
+                onClick={deleteCategory}
+                style={{ backgroundColor: category.colour }}
+              >
+                X
+              </button>
             </li>
           );
         })}

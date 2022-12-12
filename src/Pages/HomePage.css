@@ -1,0 +1,30 @@
+.link-container {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 1rem;
+}
+
+.next-link {
+  display: flex;
+  text-decoration: none;
+  color: black;
+  border: 2px solid black;
+  padding: 0.5rem;
+  background-color: #439add;
+  border-radius: 10px;
+  display: block;
+  width: 5rem;
+  text-align: center;
+}
+
+.category-prompt {
+  display: flex;
+  text-decoration: none;
+  color: black;
+  border: 2px solid black;
+  padding: 0.5rem;
+  background-color: #439add;
+  border-radius: 10px;
+  width: 5rem;
+  text-align: center;
+}

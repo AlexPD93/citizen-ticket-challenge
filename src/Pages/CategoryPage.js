@@ -11,6 +11,7 @@ export default function CategoryPage() {
 
   useEffect(() => {
     async function fetchCategory() {
+      await DataStore.query(Categories, id);
       setSelectedCategory(await DataStore.query(Categories, id));
     }
     fetchCategory();

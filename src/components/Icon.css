@@ -1,0 +1,29 @@
+.Icon {
+  display: flex;
+  flex-direction: column;
+}
+
+.choose-icon {
+  width: 8rem;
+  align-self: center;
+}
+
+.icon-container {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-self: center;
+  justify-content: center;
+  width: 60%;
+}
+
+.icon {
+  width: 50px;
+  border: 2px solid transparent;
+}
+
+.selected {
+  border: 2px solid black;
+  border-radius: 10px;
+}

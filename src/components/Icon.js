@@ -11,6 +11,8 @@ import Movie from "../Icons/movie.png";
 import Theatre from "../Icons/theatre.png";
 import Wine from "../Icons/wine.png";
 
+import "./Icon.css";
+
 export default function Icon({ chosenIcon, setChosenIcon }) {
   const [isShown, setIsShown] = useState(false);
   const icons = [
@@ -66,20 +68,24 @@ export default function Icon({ chosenIcon, setChosenIcon }) {
   }
   return (
     <div className="Icon">
-      <button onClick={toggleDisplay}>Choose an Icon +</button>
-      <img src={chosenIcon} alt="" />
-      {isShown &&
-        icons.map((icon, i) => {
-          return (
-            <img
-              key={i}
-              id={icon.src}
-              src={icon.src}
-              alt={icon.alt}
-              onClick={handleClick}
-            />
-          );
-        })}
+      <button className="choose-icon" onClick={toggleDisplay}>
+        Choose an Icon +
+      </button>
+      <div className="icon-container">
+        {isShown &&
+          icons.map((icon, i) => {
+            return (
+              <img
+                className={`icon ${icon.src === chosenIcon ? "selected" : ""}`}
+                key={i}
+                id={icon.src}
+                src={icon.src}
+                alt={icon.alt}
+                onClick={handleClick}
+              />
+            );
+          })}
+      </div>
     </div>
   );
 }

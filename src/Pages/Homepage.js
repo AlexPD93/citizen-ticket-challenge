@@ -1,11 +1,13 @@
 import { DataStore } from "@aws-amplify/datastore";
 import { Categories } from "../models";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { Link } from "react-router-dom";
 
 import Input from "../components/Input.js";
 import List from "../components/List.js";
+
+import "./HomePage.css";
 
 export default function HomePage() {
   const [categoryValue, setCategoryValue] = useState("");
@@ -19,18 +21,18 @@ export default function HomePage() {
     async function retrieveCategories() {
       await DataStore.query(Categories).then((data) => {
         setCategoriesArray(data);
-        setLastCategoryId(categoriesArray[categoriesArray.length - 1]);
       });
     }
+    setLastCategoryId(categoriesArray[categoriesArray.length - 1]);
+
     retrieveCategories();
-  });
+  }, [lastCategoryId, categoriesArray]);
 
   async function handleClick(e) {
     const categoryId = e.target.closest("li").id;
     setChosenItem(await DataStore.query(Categories, categoryId));
   }
 
-  chosenItem ? (chosenItemId = chosenItem.id) : (chosenItemId = lastCategoryId);
   return (
     <div className="Homepage">
       <h1>Citizen Ticket Challenge</h1>
@@ -39,17 +41,22 @@ export default function HomePage() {
         categoryValue={categoryValue}
         setCategoryValue={setCategoryValue}
       />
-      <List onClick={handleClick} categoriesArray={categoriesArray} />
       {categoriesArray.length > 0 ? (
-        <Link
-          to={`/category-page/${chosenItemId}`}
-          state={{ id: chosenItemId }}
-        >
-          Next
-        </Link>
+        <div className="link-container">
+          <Link
+            className="next-link"
+            to={`/category-page/${chosenItemId}`}
+            state={{ id: chosenItemId }}
+          >
+            Next
+          </Link>
+        </div>
       ) : (
-        <p>Please submit a category.</p>
+        <div className="link-container">
+          <p>Submit a category</p>
+        </div>
       )}
+      <List onClick={handleClick} categoriesArray={categoriesArray} />
     </div>
   );
 }
