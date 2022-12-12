@@ -18,6 +18,10 @@
   cursor: pointer;
 }
 
+.list-container li:last-child {
+  margin-bottom: 3rem;
+}
+
 .list-container button {
   border-radius: 10px;
   opacity: 0.9;
