@@ -34,7 +34,6 @@ export default function HomePage() {
   return (
     <div className="Homepage">
       <h1>Citizen Ticket Challenge</h1>
-      <h2>Create a new category</h2>
       <Input
         categoryValue={categoryValue}
         setCategoryValue={setCategoryValue}
@@ -50,7 +49,7 @@ export default function HomePage() {
           </Link>
         </div>
       ) : (
-        <div className="link-container">
+        <div className="submit-p">
           <p>Submit a category</p>
         </div>
       )}

@@ -1,9 +1,24 @@
+:root {
+  --textColor: #000000;
+}
+
 body {
   width: 70%;
   margin: 0 auto;
-  background-color: beige;
+  background-color: #daecfb;
 }
 h1,
 h2 {
   text-align: center;
+}
+
+button {
+  cursor: pointer;
+  border-radius: 10px;
+  padding: 0.5rem;
+}
+
+button[type="submit"] {
+  background-color: #2199e8;
+  font-weight: 600;
 }

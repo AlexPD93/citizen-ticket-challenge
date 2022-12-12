@@ -50,7 +50,13 @@ export default function Input({ categoryValue, setCategoryValue }) {
   return (
     <div className="input">
       <form>
-        <input type="text" onChange={getValue} value={categoryValue} />
+        <label htmlFor="category">Create a new category</label>
+        <input
+          id="category"
+          type="text"
+          onChange={getValue}
+          value={categoryValue}
+        />
         {textError && <p>You need to add a category!</p>}
         <ColourPicker onChange={setColor} />
         <Icon chosenIcon={chosenIcon} setChosenIcon={setChosenIcon} />

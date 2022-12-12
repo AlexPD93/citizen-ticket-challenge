@@ -7,24 +7,17 @@
 .next-link {
   display: flex;
   text-decoration: none;
-  color: black;
+  color: var(--textColor);
   border: 2px solid black;
-  padding: 0.5rem;
   background-color: #439add;
   border-radius: 10px;
-  display: block;
   width: 5rem;
-  text-align: center;
+  height: 2rem;
+  margin-bottom: 2rem;
+  justify-content: center;
 }
 
-.category-prompt {
-  display: flex;
-  text-decoration: none;
-  color: black;
-  border: 2px solid black;
-  padding: 0.5rem;
-  background-color: #439add;
-  border-radius: 10px;
+.submit-p {
   width: 5rem;
   text-align: center;
 }
