@@ -18,16 +18,9 @@
   cursor: pointer;
 }
 
-/* .category-name {
-  display: flex;
-  width: 80%;
-  word-wrap: break-word;
-  overflow-wrap: break-word;
-  hyphens: auto;
-  overflow: auto;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-} */
+.list-container li:last-child {
+  margin-bottom: 3rem;
+}
 
 .list-container button {
   border-radius: 10px;

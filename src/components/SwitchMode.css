@@ -1,0 +1,8 @@
+.dark {
+  background-color: #333;
+  color: #ffffff;
+}
+.light {
+  background-color: #daecfb;
+  color: var(--textColor);
+}

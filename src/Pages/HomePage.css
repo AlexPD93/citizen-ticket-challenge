@@ -1,7 +1,8 @@
 .link-container {
   display: flex;
-  justify-content: flex-end;
-  margin-right: 1rem;
+  justify-content: center;
+  max-width: 320px;
+  margin: 0 auto;
 }
 
 .next-link {
@@ -19,6 +20,9 @@
 }
 
 .submit-p {
+  display: flex;
   width: 5rem;
   text-align: center;
+  max-width: 320px;
+  margin: 0 auto;
 }
