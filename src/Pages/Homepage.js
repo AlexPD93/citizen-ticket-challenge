@@ -15,6 +15,7 @@ export default function HomePage() {
   const [lastCategory, setLastCategory] = useState("");
   const [categoriesArray, setCategoriesArray] = useState([]);
   const [chosenItem, setChosenItem] = useState();
+  const [theme, setTheme] = useState("light");
 
   let chosenItemId;
 
@@ -40,8 +41,12 @@ export default function HomePage() {
 
   return (
     <div className="Homepage">
-      <SwitchMode />
-      <h1>Citizen Ticket Challenge</h1>
+      <SwitchMode theme={theme} setTheme={setTheme} />
+      {theme === "light" ? (
+        <h1 style={{ color: "black" }}>Citizen Ticket Challenge</h1>
+      ) : (
+        <h1 style={{ color: "white" }}>Citizen Ticket Challenge</h1>
+      )}
       <Input
         categoryValue={categoryValue}
         setCategoryValue={setCategoryValue}

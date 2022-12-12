@@ -1,15 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 
 import "./SwitchMode.css";
 
-export default function SwitchMode() {
-  const [theme, setTheme] = useState("light");
+export default function SwitchMode({ theme, setTheme }) {
   const toggleTheme = () => {
-    if (theme === "light") {
-      setTheme("dark");
-    } else {
-      setTheme("light");
-    }
+    theme === "light" ? setTheme("dark") : setTheme("light");
   };
   useEffect(() => {
     document.body.className = theme;
