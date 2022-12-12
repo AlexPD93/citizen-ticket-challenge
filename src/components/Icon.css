@@ -16,11 +16,14 @@
   align-self: center;
   justify-content: center;
   width: 60%;
+  background-color: white;
+  border-radius: 10px;
 }
 
 .icon {
   width: 50px;
   border: 2px solid transparent;
+  color: white;
 }
 
 .selected {
