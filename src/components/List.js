@@ -1,6 +1,8 @@
 import { DataStore } from "@aws-amplify/datastore";
 import { Categories } from "../models";
 
+import categoriseFirstLetter from "../helperFunctions.js";
+
 import "./List.css";
 
 export default function List({ onClick, categoriesArray, setChosenItem }) {
@@ -13,6 +15,11 @@ export default function List({ onClick, categoriesArray, setChosenItem }) {
     setChosenItem(last[last.length - 1]);
   }
 
+  // function categoriseFirstLetter(str) {
+  //   const stringFirstCap = str.charAt(0).toUpperCase() + str.slice(1);
+  //   return stringFirstCap;
+  // }
+
   return (
     <div className="List">
       <ul className="list-container">
@@ -24,7 +31,7 @@ export default function List({ onClick, categoriesArray, setChosenItem }) {
               id={category.id}
               style={{ backgroundColor: category.colour }}
             >
-              {category.name}
+              {categoriseFirstLetter(category.name)}
               <button
                 onClick={deleteCategory}
                 style={{ backgroundColor: category.colour }}

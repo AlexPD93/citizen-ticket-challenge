@@ -15,9 +15,7 @@ export default function Input({ categoryValue, setCategoryValue }) {
   const [iconError, setIconError] = useState(false);
 
   function getValue(e) {
-    const stringFirstCap =
-      e.target.value.charAt(0).toUpperCase() + e.target.value.slice(1);
-    setCategoryValue(stringFirstCap);
+    setCategoryValue(e.target.value);
   }
 
   function checkValidity() {
