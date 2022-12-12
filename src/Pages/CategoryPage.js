@@ -1,4 +1,4 @@
-import { DataStore } from "@aws-amplify/datastore";
+import { DataStore } from "aws-amplify";
 import { Categories } from "../models";
 import { useEffect, useState } from "react";
 
@@ -21,13 +21,8 @@ export default function CategoryPage() {
     <div className="CategoryPage">
       <h1>Citizen Ticket Challenge</h1>
       <Link to="/">Back</Link>
-      <div
-        className="solo-category-container"
-        style={{ backgroundColor: selectedCategory.colour }}
-      >
-        <p>{selectedCategory.name}</p>
-        <img src={selectedCategory.icon} alt={selectedCategory.name} />
-      </div>
+      <p>{selectedCategory.name}</p>
+      <img src={selectedCategory.icon} alt={selectedCategory.name} />
     </div>
   );
 }
