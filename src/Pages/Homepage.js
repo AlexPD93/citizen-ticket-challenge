@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 
 import Input from "../components/Input.js";
 import List from "../components/List.js";
+import SwitchMode from "../components/SwitchMode.js";
 
 import "./HomePage.css";
 
@@ -40,6 +41,7 @@ export default function HomePage() {
   return (
     <div className="Homepage">
       <h1>Citizen Ticket Challenge</h1>
+      <SwitchMode />
       <Input
         categoryValue={categoryValue}
         setCategoryValue={setCategoryValue}
