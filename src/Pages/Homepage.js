@@ -56,7 +56,7 @@ export default function HomePage() {
         </div>
       ) : (
         <div className="submit-p">
-          <p className="submit-p">Submit a category</p>
+          <p>Submit a category</p>
         </div>
       )}
       <List
