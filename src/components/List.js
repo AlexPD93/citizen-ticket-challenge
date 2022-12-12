@@ -3,12 +3,14 @@ import { Categories } from "../models";
 
 import "./List.css";
 
-export default function List({ onClick, categoriesArray }) {
+export default function List({ onClick, categoriesArray, setChosenItem }) {
   async function deleteCategory(e) {
     const listItem = e.target.closest("li").id;
 
     const modelToDelete = await DataStore.query(Categories, listItem);
     DataStore.delete(modelToDelete);
+    const last = await DataStore.query(Categories);
+    setChosenItem(last[last.length - 1]);
   }
 
   return (
@@ -23,7 +25,6 @@ export default function List({ onClick, categoriesArray }) {
               style={{ backgroundColor: category.colour }}
             >
               {category.name}
-
               <button
                 onClick={deleteCategory}
                 style={{ backgroundColor: category.colour }}

@@ -1,7 +1,7 @@
 import { DataStore } from "@aws-amplify/datastore";
 import { Categories } from "../models";
 
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 import Input from "../components/Input.js";
@@ -11,7 +11,7 @@ import "./HomePage.css";
 
 export default function HomePage() {
   const [categoryValue, setCategoryValue] = useState("");
-  const [lastCategoryId, setLastCategoryId] = useState("");
+  const [lastCategory, setLastCategory] = useState("");
   const [categoriesArray, setCategoriesArray] = useState([]);
   const [chosenItem, setChosenItem] = useState();
 
@@ -19,19 +19,23 @@ export default function HomePage() {
 
   useEffect(() => {
     async function retrieveCategories() {
-      await DataStore.query(Categories).then((data) => {
-        setCategoriesArray(data);
-      });
+      const categoryData = await DataStore.query(Categories);
+      setCategoriesArray(categoryData);
+      const lastCategory = categoriesArray[categoriesArray.length - 1];
+      setLastCategory(lastCategory);
     }
-    setLastCategoryId(categoriesArray[categoriesArray.length - 1]);
-
     retrieveCategories();
-  }, [lastCategoryId, categoriesArray]);
+  }, [categoriesArray, lastCategory]);
 
   async function handleClick(e) {
     const categoryId = e.target.closest("li").id;
-    setChosenItem(await DataStore.query(Categories, categoryId));
+
+    const selected = await DataStore.query(Categories, categoryId);
+
+    setChosenItem(selected.id);
   }
+
+  !chosenItem ? (chosenItemId = lastCategory) : (chosenItemId = chosenItem);
 
   return (
     <div className="Homepage">
@@ -51,9 +55,15 @@ export default function HomePage() {
           </Link>
         </div>
       ) : (
-        <p className="submit-p">Submit a category</p>
+        <div className="submit-p">
+          <p className="submit-p">Submit a category</p>
+        </div>
       )}
-      <List onClick={handleClick} categoriesArray={categoriesArray} />
+      <List
+        onClick={handleClick}
+        categoriesArray={categoriesArray}
+        setChosenItem={setChosenItem}
+      />
     </div>
   );
 }

@@ -52,7 +52,6 @@ export default function Input({ categoryValue, setCategoryValue }) {
   return (
     <div className="input">
       <form>
-        <label htmlFor="category">Create a new category</label>
         <input
           id="category"
           type="text"
