@@ -15,8 +15,10 @@ export default function SwitchMode() {
     document.body.className = theme;
   }, [theme]);
   return (
-    <div className={`App ${theme}`}>
-      <button onClick={toggleTheme}>Toggle Theme</button>{" "}
+    <div className={`${theme}`}>
+      <button onClick={toggleTheme}>
+        {theme === "light" ? "Dark theme" : "Light theme"}
+      </button>
     </div>
   );
 }
