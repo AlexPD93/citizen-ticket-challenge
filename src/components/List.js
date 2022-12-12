@@ -15,11 +15,6 @@ export default function List({ onClick, categoriesArray, setChosenItem }) {
     setChosenItem(last[last.length - 1]);
   }
 
-  // function categoriseFirstLetter(str) {
-  //   const stringFirstCap = str.charAt(0).toUpperCase() + str.slice(1);
-  //   return stringFirstCap;
-  // }
-
   return (
     <div className="List">
       <ul className="list-container">

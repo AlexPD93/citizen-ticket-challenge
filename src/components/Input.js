@@ -55,7 +55,7 @@ export default function Input({ categoryValue, setCategoryValue }) {
           type="text"
           onChange={getValue}
           value={categoryValue}
-          maxLength="30"
+          maxLength="25"
         />
         {textError && <p className="error">You need to add a category!</p>}
         <ColourPicker onChange={setColor} />
