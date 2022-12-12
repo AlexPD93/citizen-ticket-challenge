@@ -16,9 +16,11 @@ export default function SwitchMode() {
   }, [theme]);
   return (
     <div className={`${theme}`}>
-      <button onClick={toggleTheme}>
-        {theme === "light" ? "Dark theme" : "Light theme"}
-      </button>
+      <div className="toggle-button-container">
+        <button className="theme-button" onClick={toggleTheme}>
+          {theme === "light" ? "Dark theme" : "Light theme"}
+        </button>
+      </div>
     </div>
   );
 }

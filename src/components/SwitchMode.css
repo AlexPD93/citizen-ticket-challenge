@@ -1,8 +1,21 @@
 .dark {
   background-color: #333;
   color: #ffffff;
+  border: 2px solid white;
 }
 .light {
   background-color: #daecfb;
   color: var(--textColor);
+  border: 2px solid black;
+}
+
+.toggle-button-container {
+  display: flex;
+  margin: 1rem 0;
+}
+
+.theme-button {
+  display: block;
+  margin: 0 auto;
+  padding: 1rem;
 }

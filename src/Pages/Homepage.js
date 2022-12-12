@@ -40,8 +40,8 @@ export default function HomePage() {
 
   return (
     <div className="Homepage">
-      <h1>Citizen Ticket Challenge</h1>
       <SwitchMode />
+      <h1>Citizen Ticket Challenge</h1>
       <Input
         categoryValue={categoryValue}
         setCategoryValue={setCategoryValue}
