@@ -49,9 +49,7 @@ export default function HomePage() {
           </Link>
         </div>
       ) : (
-        <div className="submit-p">
-          <p>Submit a category</p>
-        </div>
+        <p className="submit-p">Submit a category</p>
       )}
       <List onClick={handleClick} categoriesArray={categoriesArray} />
     </div>

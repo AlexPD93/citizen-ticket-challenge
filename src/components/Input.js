@@ -9,13 +9,15 @@ import Icon from "../components/Icon.js";
 import "./Input.css";
 
 export default function Input({ categoryValue, setCategoryValue }) {
-  const [color, setColor] = useState("#aabbcc");
+  const [color, setColor] = useState("#ffffff");
   const [chosenIcon, setChosenIcon] = useState();
   const [textError, setTextError] = useState(false);
   const [iconError, setIconError] = useState(false);
 
   function getValue(e) {
-    setCategoryValue(e.target.value.trim());
+    const stringFirstCap =
+      e.target.value.charAt(0).toUpperCase() + e.target.value.slice(1);
+    setCategoryValue(stringFirstCap);
   }
 
   function checkValidity() {
@@ -56,11 +58,12 @@ export default function Input({ categoryValue, setCategoryValue }) {
           type="text"
           onChange={getValue}
           value={categoryValue}
+          maxLength="30"
         />
-        {textError && <p>You need to add a category!</p>}
+        {textError && <p className="error">You need to add a category!</p>}
         <ColourPicker onChange={setColor} />
         <Icon chosenIcon={chosenIcon} setChosenIcon={setChosenIcon} />
-        {iconError && <p>You need to add an icon!</p>}
+        {iconError && <p className="error">You need to add an icon!</p>}
         <button type="submit" onClick={handleClick}>
           Create Category
         </button>
