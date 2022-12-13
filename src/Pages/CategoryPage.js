@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 
 import SwitchMode from "../components/SwitchMode.js";
+import capitaliseFirstLetter from "../helperFunctions.js";
 
 import "./CategoryPage.css";
 
@@ -20,6 +21,7 @@ export default function CategoryPage({ theme, setTheme }) {
     }
     fetchCategory();
   }, [id]);
+  const categoryName = capitaliseFirstLetter(selectedCategory.name);
 
   return (
     <div className="CategoryPage">
@@ -38,7 +40,7 @@ export default function CategoryPage({ theme, setTheme }) {
         className="category-container"
         style={{ backgroundColor: selectedCategory.colour }}
       >
-        <p>{selectedCategory.name}</p>
+        <p>{categoryName}</p>
         <img src={selectedCategory.icon} alt={selectedCategory.name} />
       </div>
     </div>

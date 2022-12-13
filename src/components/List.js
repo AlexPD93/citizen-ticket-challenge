@@ -1,7 +1,7 @@
 import { DataStore } from "@aws-amplify/datastore";
 import { Categories } from "../models";
 
-import categoriseFirstLetter from "../helperFunctions.js";
+import capitaliseFirstLetter from "../helperFunctions.js";
 
 import "./List.css";
 
@@ -32,7 +32,7 @@ export default function List({
               style={{ backgroundColor: category.colour }}
               className={chosenItem === category.id ? "selected-item" : ""}
             >
-              {categoriseFirstLetter(category.name)}
+              {capitaliseFirstLetter(category.name)}
               <button
                 onClick={deleteCategory}
                 style={{ backgroundColor: category.colour }}
