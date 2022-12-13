@@ -5,6 +5,10 @@ form {
   gap: 20px;
 }
 
+.label-dark {
+  color: white;
+}
+
 .error {
   color: red;
   margin: 0;

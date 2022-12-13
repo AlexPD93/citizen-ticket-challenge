@@ -49,6 +49,7 @@ export default function HomePage({ theme, setTheme }) {
       <Input
         categoryValue={categoryValue}
         setCategoryValue={setCategoryValue}
+        theme={theme}
       />
       {categoriesArray.length > 0 ? (
         <div className="link-container">
@@ -65,7 +66,7 @@ export default function HomePage({ theme, setTheme }) {
         </div>
       ) : (
         <div className="submit-p">
-          <p>Submit a category</p>
+          <p className={theme === "light" ? "" : "dark-p"}>Submit a category</p>
         </div>
       )}
       <List

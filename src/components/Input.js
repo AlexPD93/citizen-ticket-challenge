@@ -8,7 +8,7 @@ import Icon from "../components/Icon.js";
 
 import "./Input.css";
 
-export default function Input({ categoryValue, setCategoryValue }) {
+export default function Input({ categoryValue, setCategoryValue, theme }) {
   const [color, setColor] = useState("#ffffff");
   const [chosenIcon, setChosenIcon] = useState();
   const [textError, setTextError] = useState(false);
@@ -50,7 +50,9 @@ export default function Input({ categoryValue, setCategoryValue }) {
   return (
     <div className="input">
       <form>
-        <label For="category">Type a category</label>
+        <label For="category" className={theme === "light" ? "" : "label-dark"}>
+          Type a category
+        </label>
         <input
           id="category"
           type="text"
