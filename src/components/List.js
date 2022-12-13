@@ -5,7 +5,12 @@ import categoriseFirstLetter from "../helperFunctions.js";
 
 import "./List.css";
 
-export default function List({ onClick, categoriesArray, setChosenItem }) {
+export default function List({
+  onClick,
+  categoriesArray,
+  setChosenItem,
+  chosenItem,
+}) {
   async function deleteCategory(e) {
     const listItem = e.target.closest("li").id;
 
@@ -25,6 +30,7 @@ export default function List({ onClick, categoriesArray, setChosenItem }) {
               onClick={onClick}
               id={category.id}
               style={{ backgroundColor: category.colour }}
+              className={chosenItem === category.id ? "selected-item" : ""}
             >
               {categoriseFirstLetter(category.name)}
               <button

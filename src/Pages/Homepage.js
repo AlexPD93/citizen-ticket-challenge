@@ -72,6 +72,7 @@ export default function HomePage({ theme, setTheme }) {
         onClick={handleClick}
         categoriesArray={categoriesArray}
         setChosenItem={setChosenItem}
+        chosenItem={chosenItem}
       />
     </div>
   );

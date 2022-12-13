@@ -18,6 +18,10 @@
   cursor: pointer;
 }
 
+.list-container li:hover {
+  opacity: 0.8;
+}
+
 .list-container li:last-child {
   margin-bottom: 3rem;
 }
@@ -26,6 +30,10 @@
   border-radius: 10px;
   opacity: 0.9;
   cursor: pointer;
+}
+
+.selected-item {
+  border: 3px solid red !important;
 }
 
 @media only screen and (max-width: 400px) {

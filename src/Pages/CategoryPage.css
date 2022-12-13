@@ -1,11 +1,11 @@
-.link-container {
+.back-link-container {
   display: flex;
   justify-content: center;
-  max-width: 320px;
   margin: 0 auto;
+  margin-bottom: 2rem;
 }
 
-.next-link {
+.back-link {
   display: flex;
   text-decoration: none;
   color: var(--textColor);
@@ -14,22 +14,28 @@
   border-radius: 10px;
   width: 5rem;
   height: 2rem;
-  margin-bottom: 2rem;
-  margin-top: 2rem;
+  margin: 2rem 0;
   justify-content: center;
   font-weight: 600;
+  margin: 0 auto;
 }
 
-.next-link:hover {
+.back-link:hover {
   background-color: #7ec2f6;
   transition: 500ms;
   font-weight: 800;
 }
 
-.submit-p {
+.category-container {
   display: flex;
-  width: 5rem;
-  text-align: center;
-  max-width: 320px;
+  margin-top: 1rem;
+  align-self: center;
   margin: 0 auto;
+  font-size: 40px;
+  justify-content: space-around;
+  padding: 1rem;
+  width: 70%;
+  border: 2px solid black;
+  border-radius: 10px;
+  max-width: 400px;
 }
