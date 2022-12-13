@@ -10,12 +10,11 @@ import SwitchMode from "../components/SwitchMode.js";
 
 import "./HomePage.css";
 
-export default function HomePage() {
+export default function HomePage({ theme, setTheme }) {
   const [categoryValue, setCategoryValue] = useState("");
   const [lastCategory, setLastCategory] = useState("");
   const [categoriesArray, setCategoriesArray] = useState([]);
   const [chosenItem, setChosenItem] = useState();
-  const [theme, setTheme] = useState("light");
 
   let chosenItemId;
 
@@ -56,7 +55,10 @@ export default function HomePage() {
           <Link
             className="next-link"
             to={`/category-page/${chosenItemId}`}
-            state={{ id: chosenItemId }}
+            state={{
+              id: chosenItemId,
+              theme: theme,
+            }}
           >
             Next
           </Link>
