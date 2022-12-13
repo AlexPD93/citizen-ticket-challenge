@@ -1,6 +1,6 @@
 # Citizen Ticket Challenge
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Link to site [here](https://main.d2186rfqd51qqd.amplifyapp.com/)
 
 ## Set up
 Make sure you have Git and Node (v18) installed.
