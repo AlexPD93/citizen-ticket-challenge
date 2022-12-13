@@ -50,7 +50,7 @@ export default function Input({ categoryValue, setCategoryValue }) {
   return (
     <div className="input">
       <form>
-        <label For="category">Choose a category</label>
+        <label For="category">Type a category</label>
         <input
           id="category"
           type="text"
