@@ -3,11 +3,13 @@
 Link to site [here](https://main.d2186rfqd51qqd.amplifyapp.com/)
 
 ## Set up
-Make sure you have Git and Node (v18) installed.
+Make sure you have Git and Node (v18) installed and are using an Ubuntu terminal environment if you want to run with AWS Amplify Datastore.
 
 Use this template, clone your copy, cd into it.
 
 Run ```npm install``` to install all the dependencies.
+
+Run ```amplify init``` (in an Ubuntu terminal environment) to initialise the amplify app.
 
 Run ```npm start``` to start the local dev server
 
